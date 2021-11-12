@@ -3,6 +3,7 @@ import { StyleSheet, View, SafeAreaView, Platform } from 'react-native';
 
 import Input from './src/components/Input/Input';
 import Button from './src/components/Button/Button';
+import Posts from './src/components/Posts/Posts';
 
 import PostProps from './src/components/Post/PostProps';
 
@@ -25,6 +26,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Input placeholder={'Quoi de neuf ?'} value={text} onChangeHandler={inputChangeHandler} />
       <Button onPressHandler={addPostHandler}>Publier</Button>
+      <Posts posts={posts} />
     </SafeAreaView>
   );
 }
