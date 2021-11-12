@@ -6,6 +6,8 @@ import Button from './src/components/Button/Button';
 
 import PostProps from './src/components/Post/PostProps';
 
+import fetchImage from './src/utils/fetchImage';
+
 export default function App() {
   const [posts,setPosts] = useState<PostProps[]>([]);
   const [text,setText] = useState<string>("");
@@ -14,8 +16,8 @@ export default function App() {
     setText(onChangeText);
   }
 
-  const addPostHandler = ()=>{
-    setPosts([{text},...posts]);
+  const addPostHandler = async ()=>{
+    setPosts([{text,image:await fetchImage()},...posts]);
     setText("");
   }
 
