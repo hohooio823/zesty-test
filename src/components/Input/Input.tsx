@@ -11,7 +11,6 @@ export default function Input(props:InputProps) {
           placeholder={placeholder}
           placeholderTextColor="#d3d3d3" 
           value={value}
-          autoFocus
           onChangeText={(text:string) => onChangeHandler(text)}
         />
     )

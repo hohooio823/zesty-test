@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, SafeAreaView, Platform } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, SafeAreaView, Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Input from './src/components/Input/Input';
 import Button from './src/components/Button/Button';
@@ -18,9 +19,23 @@ export default function App() {
   }
 
   const addPostHandler = async ()=>{
-    setPosts([{text,image:await fetchImage()},...posts]);
+    const newPost = {text,image:await fetchImage()};
+    setPosts([newPost,...posts]);
     setText("");
+    await AsyncStorage.setItem(
+      'posts',
+      JSON.stringify([newPost,...posts])
+    );
   }
+
+  const fetchPostsFromStorage = async ()=>{
+    const posts = await AsyncStorage.getItem('posts');
+    posts!=null?setPosts(JSON.parse(posts)):null;
+  }
+  
+  useEffect(()=>{
+    fetchPostsFromStorage();
+  },[])
 
   return (
     <SafeAreaView style={styles.container}>
