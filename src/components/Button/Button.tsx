@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import ButtonProps from './ButtonProps';
 
@@ -22,6 +23,8 @@ const styles = StyleSheet.create({
       alignItems:"center",
     },
     text:{
+      fontSize: RFValue(14,512),
       color:"black",
+      fontWeight:"bold"
     }
   });

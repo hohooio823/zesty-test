@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import PostProps from './PostProps';
 
@@ -24,12 +25,11 @@ const styles = StyleSheet.create({
       marginBottom:20,
     },
     text:{
-      fontSize:15,
-      marginLeft:7.5,
+      fontSize:RFValue(15,512),
       marginBottom:10,
     },
     image:{
-      width: 275,
+      width: "100%",
       height: 275,
       alignSelf: 'center'
     }

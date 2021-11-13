@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, TextInput } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import InputProps from './InputProps';
 
@@ -18,7 +19,7 @@ export default function Input(props:InputProps) {
 
 const styles = StyleSheet.create({
     input: {
-      fontSize: 18,
+      fontSize: RFValue(18,512),
       padding: 10,
       marginVertical: 10,
       backgroundColor:"#fafafa",
